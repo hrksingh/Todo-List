@@ -1,0 +1,400 @@
+:root {
+  --background-color: #f5f4f4;
+  --hover-color: #dedede;
+
+  --focus-color: #faebca;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+body {
+  line-height: 1.5;
+  height: 100vh;
+  display: flex;
+  -webkit-font-smoothing: antialiased;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+.sidebar {
+  flex: 1;
+  background-color: var(--background-color);
+  padding: 15px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 10px;
+}
+
+.sidebar > button,
+.myprojects,
+.project-list button {
+  text-align: left;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 5px 10px;
+  background-color: var(--background-color);
+  border-radius: 5px;
+}
+
+.myprojects,
+.project-list button {
+  justify-content: space-between;
+  margin-top: 0px;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+hr {
+  margin-top: 15px;
+}
+
+.project-list {
+  padding: 0px;
+}
+
+.project-list button {
+  font-style: oblique;
+  font-size: 1rem;
+  margin-top: 0px;
+}
+
+.maincontent {
+  flex: 5;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 0.3fr));
+  column-gap: 1.6rem;
+  grid-template-rows: max-content;
+  overflow-x: auto;
+  padding: 2rem;
+  row-gap: 1.6rem;
+  flex-wrap: wrap;
+  justify-items: start;
+}
+
+.sidebar > button:hover,
+.myprojects:hover,
+.project-list button:hover {
+  background-color: var(--hover-color);
+}
+
+.sidebar .addtask:active,
+.project-list button:active {
+  background-color: #faebca;
+}
+
+.upcoming.active {
+  background-color: "#faebca";
+}
+
+.sidebar > button:focus,
+.myprojects:focus,
+.project-list button:focus {
+  background-color: var(--focus-color);
+}
+
+dialog {
+  background-color: rgb(255, 255, 255);
+  width: 30%;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 50px 7px rgb(183, 183, 183);
+  margin: 0 auto;
+  position: fixed;
+  top: 20%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+::backdrop {
+  background-color: transparent !important;
+}
+
+dialog > form {
+  margin: 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+form > input,
+.projectInput {
+  width: 100%;
+  border: none;
+}
+
+.projectInput {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+#description:empty::before {
+  content: attr(data-placeholder);
+  color: gray;
+}
+
+#description {
+  outline: none;
+  padding: 5px;
+  min-height: 3em;
+  max-height: 10em;
+  overflow-y: auto;
+}
+
+form > input:nth-of-type(2) {
+  margin-bottom: 10px;
+}
+
+form > :first-child {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.hidden-input {
+  position: relative;
+  display: none;
+}
+
+.form-wrapper,
+.add-cancel-project {
+  display: flex;
+  gap: 5px;
+}
+
+.add-cancel-project {
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.add-cancel-project button,
+#submitProject,
+#closeDialog {
+  border: none;
+  border-radius: 5px;
+  padding: 4px 10px;
+  opacity: 1;
+}
+
+.add-cancel-project .submit {
+  background-color: rgb(231, 131, 131);
+  color: white;
+}
+
+#closeDialog,
+#submitProject {
+  float: right;
+  min-height: 10%;
+  min-width: 15%;
+}
+
+#submitProject {
+  color: white;
+  margin-left: 5px;
+}
+
+#submitProject:hover {
+  background-color: rgb(199, 71, 71);
+}
+
+.add-cancel-project .submit:enabled,
+#submitProject {
+  background-color: rgb(233, 81, 81);
+}
+
+.cancel:hover,
+#closeDialog:hover {
+  background-color: rgb(224, 224, 224);
+}
+
+.form-wrapper * {
+  border-radius: 5px;
+  border: 1px solid rgb(223, 220, 220);
+  background-color: white;
+  opacity: 0.7;
+}
+
+.form-wrapper svg {
+  background: white;
+  outline: none;
+}
+
+#addtoproject {
+  color: gray;
+  border: none;
+  border-radius: 5px;
+  padding: 1px 3px;
+}
+
+#addtoproject:hover,
+#addtoproject:focus {
+  color: black;
+  background-color: white;
+  outline: none;
+}
+
+option:hover {
+  background-color: gray !important;
+}
+
+.form-wrapper {
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgb(177, 174, 174);
+}
+
+.form-wrapper button:hover,
+select:hover,
+#date-picker:hover {
+  background-color: var(--background-color);
+  opacity: 1;
+}
+
+#date-picker {
+  width: 7rem;
+}
+
+#date-picker::placeholder {
+  color: black;
+}
+
+.task-card {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  align-items: start;
+  height: 200px;
+  justify-content: start;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(240, 238, 238);
+  position: relative;
+  padding: 0px;
+}
+
+#heading {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+#completed {
+  width: 1.2rem;
+}
+
+.task-card p {
+  padding: 5px 20px;
+  font-size: 1rem;
+  flex: 1;
+  width: 100%;
+  align-items: center;
+  text-wrap: inherit;
+}
+
+.date-display {
+  background-color: #f8f9fa;
+  border-top: 1px solid #eee;
+  padding: 12px 5px;
+  font-size: 1rem;
+  margin-top: auto;
+  align-self: center;
+  margin-bottom: 0px;
+  border-radius: 0px 0px 10px 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.edit-button {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: none;
+  background-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" fill="none" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" stroke="%23f0c463"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z" stroke="%23f0c463" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13" stroke="%23f0c463" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>');
+  background-size: 24px 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-self: center;
+  margin-left: auto;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+  align-content: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.delete-button {
+  background-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="red"><g id="SVGRepo_bgCadark reddark rediedark red" stdark="" redoke-width="0"></g><g id="SVGRepo_tdark redacedark redCadark reddark rediedark red" stdark="" redoke-linecap="dark redound" redoke-linejoin="dark redound"></g><g id="SVGRepo_iconCadark reddark rediedark red"><path d="M10 11V17" stdark="" redoke="dark red" redoke-width="2" redoke-linecap="dark redound" redoke-linejoin="dark redound"></path><path d="M14 11V17" stdark="" redoke="dark red" redoke-width="2" redoke-linecap="dark redound" redoke-linejoin="dark redound"></path><path d="M4 7H20" stdark="" redoke="dark red" redoke-width="2" redoke-linecap="dark redound" redoke-linejoin="dark redound"></path><path d="M6 7H12H18V18C18 19.6569 16.6569 21 15 21H9C7.34315 21 6 19.6569 6 18V7Z" stdark="" redoke="dark red" redoke-width="2" redoke-linecap="dark redound" redoke-linejoin="dark redound"></path><path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stdark="" redoke="dark red" redoke-width="2" redoke-linecap="dark redound" redoke-linejoin="dark redound"></path></g></svg>');
+  background-size: 24px 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  transform: translateY(-5px);
+}
+
+.edit-button:disabled,
+.delete-button:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}

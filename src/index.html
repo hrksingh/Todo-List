@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <div class="logo">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="50px"
+          width="50px"
+          viewBox="0 0 200 200"
+        >
+          <rect
+            x="40"
+            y="40"
+            width="120"
+            height="100"
+            rx="30"
+            fill="#000000"
+            transform="translate(0, -8)"
+          />
+
+          <rect x="40" y="58" width="120" height="100" rx="30" fill="#A697E8" />
+
+          <rect x="40" y="86" width="120" height="100" rx="30" fill="#FFE5A3" />
+
+          <path
+            d="M85 136 L95 146 L115 126"
+            stroke="black"
+            stroke-width="6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            fill="none"
+          />
+        </svg>
+        <h2>To Do</h2>
+      </div>
+      <button class="addtask">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          width="20"
+          height="20"
+          fill="#020202"
+          viewBox="0 0 50 50"
+        >
+          <path
+            d="M25,2C12.317,2,2,12.317,2,25s10.317,23,23,23s23-10.317,23-23S37.683,2,25,2z M37,26H26v11h-2V26H13v-2h11V13h2v11h11V26z"
+          ></path></svg
+        >Add Task
+      </button>
+      <button class="today">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="20px"
+          viewBox="0 -960 960 960"
+          width="20px"
+          fill="#020202"
+        >
+          <path
+            d="M360-300q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"
+          /></svg
+        >Today
+      </button>
+      <button class="upcoming">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="20px"
+          viewBox="0 -960 960 960"
+          width="20px"
+          fill="#020202"
+        >
+          <path
+            d="M600-80v-80h160v-400H200v160h-80v-320q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H600ZM320 0l-56-56 103-104H40v-80h327L264-344l56-56 200 200L320 0ZM200-640h560v-80H200v80Zm0 0v-80 80Z"
+          /></svg
+        >Upcoming
+      </button>
+      <hr />
+      <div class="projects-wrapper">
+        <div class="projects">
+          <button class="myprojects">
+            My Projects
+            <span
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="#020202"
+              >
+                <path
+                  d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
+                /></svg
+            ></span>
+          </button>
+        </div>
+
+        <ul class="project-list"></ul>
+      </div>
+    </div>
+
+    <div class="maincontent"></div>
+
+    <dialog>
+      <form class="addTodoform">
+        <input type="text" placeholder="Today I am going to do" />
+        <div
+          id="description"
+          contenteditable="true"
+          data-placeholder="Description"
+        ></div>
+        <div class="form-wrapper">
+          <input type="date" id="date-picker" placeholder="Date" />
+
+          <select name="priority" id="priority">
+            <option selected disabled hidden value="labeler">Priority</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+
+        <div class="add-cancel-project">
+          <select id="addtoproject">
+            <option selected value="Personal">Personal</option>
+          </select>
+
+          <div class="add-cancel-wrapper">
+            <button class="cancel">Cancel</button>
+            <button class="submit">Add Task</button>
+          </div>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="projectDialog">
+      <input
+        type="text"
+        class="projectInput"
+        placeholder="Add Project"
+        required
+      />
+      <button id="submitProject">Add</button>
+      <button id="closeDialog">Close</button>
+    </dialog>
+
+    <script src="index.js"></script>
+  </body>
+</html>
